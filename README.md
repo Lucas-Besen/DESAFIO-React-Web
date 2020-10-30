@@ -1,4 +1,4 @@
-# DESAFIO – (05) – React Web
+# DESAFIO – React Web
 A necessidade desse desafio prova o conhecimento do básico ao intermediário contido nos treinamentos para React Web com Redux. O conhecimento a ser analisado envolve a estrutura de código, identação, padrão de projeto, e objetivo simples de solução para o desafio. Segue os pontos relevantes da necessidade e o que deverá ser entregue.
 
 # Pontos Relevantes
