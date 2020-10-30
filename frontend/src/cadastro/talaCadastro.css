@@ -1,0 +1,29 @@
+.CadastroInput{
+    width: 200px;
+    color: black;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+.CadastroPosicao{
+    font-size: 1.5rem;
+    position: fixed;
+    right: 300px;
+    top: 10px;
+}
+
+.CadastroH2{
+    font-size: 2rem;
+    text-align: center;
+}
+.CadastroBT1{
+  padding:10px;  
+  position: fixed;
+  right: 395px;
+ 
+}
+.CadastroBT2{
+    padding:10px;  
+    position: fixed;
+    right: 300px;
+    font-size: 0.5rem;
+  }

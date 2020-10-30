@@ -1,0 +1,30 @@
+.loginInput{
+    color: black;
+    width: 200px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.loginPosicaoo{
+    position: fixed;
+    right: 80px;
+    top: 10px;
+}
+
+.loginH2{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.loginBT1{
+    padding: 10px;
+    position: fixed;
+    right: 190px;
+  
+}
+.loginBT2{
+    
+    padding: 10px;
+    position: fixed;
+    right: 85px;
+}
