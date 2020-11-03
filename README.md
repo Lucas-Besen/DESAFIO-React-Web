@@ -2,9 +2,9 @@
 # instalações
 mongo, node
 ## mongo BD  
-Foi utilizado o mongoDB como banco de dado link: https://www.mongodb.com/
+Foi utilizado o mongoDB como banco de dado link: https://www.mongodb.com/try/download/community
 ## node
- link: https://www.mongodb.com/
+ link: https://nodejs.org/en/
 
 # comandos
   ### npm i 
