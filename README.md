@@ -1,15 +1,19 @@
 
 # instalações
 mongo, node
+## mongo BD  
+Foi utilizado o mongoDB como banco de dado link: https://www.mongodb.com/
+## node
+ link: https://www.mongodb.com/
 
 # comandos
-  # npm i 
+  ### npm i 
    execute o comando acima dentro das pastas backend e frontend para baixar as dependências
-  # mongod
+  ### mongod
   execulte o comando acima para execultar o banco
-  # npm run dev
+  ### npm run dev
   execute o comando acima dentros das pastas backend e frontend
-  # http://localhost:8080/#/
+  ### http://localhost:8080/#/
   Url onde o projeto deve ser aberto
 
 
