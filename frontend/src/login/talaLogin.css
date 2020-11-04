@@ -1,10 +1,9 @@
 .loginInput{
     color: black;
-    width: 200px;
-    font-size: 1rem;
+    width: 300px;
+    font-size: 1.8rem;
     border-radius: 5px;
 }
-
 .loginPosicaoo{
     position: fixed;
     right: 80px;
@@ -12,19 +11,15 @@
 }
 
 .loginH2{
-    font-size: 2rem;
     text-align: center;
 }
-
 .loginBT1{
-    padding: 10px;
+    padding: 15px;
     position: fixed;
-    right: 190px;
-  
+    right: 240px;
 }
 .loginBT2{
-    
-    padding: 10px;
+    padding: 15px;
     position: fixed;
-    right: 85px;
+    right: 130px;
 }

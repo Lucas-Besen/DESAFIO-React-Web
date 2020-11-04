@@ -25,9 +25,9 @@ class Login extends Component {
 			this.setState({senha: valor.target.value})
 		}
 	}
-	componentWillMount(){
+	/* componentWillMount(){
 		this.props.trazer()
-	 }
+	 } */
  	entrar (e){
 		
 		if(this.state.email==='teste@teste.com'&&this.state.senha==='1234'){ 
@@ -37,8 +37,7 @@ class Login extends Component {
 			alert("senha ou e-mail incorretos")
 		} 
 	}
-	
-	 
+		 
 	render(){	
 	
 		return(
@@ -47,12 +46,12 @@ class Login extends Component {
 				<h2 className='loginH2'>Login</h2>
 				 
 				<div>
-					<label>E-mail </label>
+					<label className='label' >E-mail </label>
 					<br/>
 					<input type="email" className='loginInput'  value={this.state.email} onChange={(e)=> this.onChange('email',e)} placeholder='lucas@email.com' required="required" />
 				</div>
 				<div>
-					<label>Senha </label>
+					<label className='label'>Senha </label>
 					<br/>
 					<input type="password" className='loginInput' value={this.state.senha} onChange={(e)=> this.onChange('senha',e)} required="required"/>
 				</div>
