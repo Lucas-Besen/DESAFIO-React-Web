@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress --colors --inline --hot",
+    "start": "webpack-dev-server --progress --colors --inline --hot",
     "production": "webpack --progress -p"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "admin-lte": "2.3.6",
@@ -39,5 +39,9 @@
     "style-loader": "0.13.1",
     "webpack": "1.14.0",
     "webpack-dev-server": "1.16.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "js-cookie": "^2.2.1"
   }
 }

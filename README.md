@@ -1,23 +1,31 @@
 
 # instalações
-mongo, node
-## mongo BD  
-Foi utilizado o mongoDB como banco de dado link: https://www.mongodb.com/try/download/community
+MYsql, node
+
+## mysql
+   link: https://www.apachefriends.org/pt_br/index.html
 ## node
- link: https://nodejs.org/en/
+   link: https://nodejs.org/en/
+
+## JWT
+   crie um arquivo .env no /backend/src/, insira dentro dele as instruções abaixo
+   Você pode alterar essa chave!
+   module.exports = {
+      authSecret: 'chave'
+   }
 
 # comandos
-  ### npm i 
+   ### npm i 
    execute o comando acima dentro das pastas backend e frontend para baixar as dependências
-  ### mongod
-  execulte o comando acima para execultar o banco
-  ### npm run dev
+  ## mysql
+   ### CREATE DATABASE cadastro
+  execulte o banco de dados depois crie uma DATABASE com o comando acima 
+  ### npm start
   execute o comando acima dentros das pastas backend e frontend
+
   ### http://localhost:8080/#/
   Url onde o projeto deve ser aberto
 
-
-
-
-
+  ### http://localhost:3030/#/
+  Url do backend
 

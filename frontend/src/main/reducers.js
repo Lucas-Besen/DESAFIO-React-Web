@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
-import BuscaDados from '../login/confirmaReducer'
+import DadosAPI from '../login/confirmaReducer'
 
 const rootReducer = combineReducers({
 
-busca: BuscaDados
+busca: DadosAPI
     
 })
 export default rootReducer
