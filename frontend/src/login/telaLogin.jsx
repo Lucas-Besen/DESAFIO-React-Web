@@ -11,8 +11,7 @@ class Login extends Component {
 
 		this.state={
 			email: '',
-			senha: '',
-			t:true
+			senha: ''
 		}
 		this.onChange = this.onChange.bind(this)		
 		this.entrar = this.entrar.bind(this)
@@ -51,42 +50,42 @@ class Login extends Component {
 	}
  
 	render(){	
-		if(Cookies.get('Ativo')==='false'){
-			return(
-			<form>
-				<div className='loginPosicaoo'>
-					<h2 className='loginH2'>Login</h2>
-					
-					<div>
-						<label className='label' >E-mail </label>
-						<br/>
-						<input type="email" className='loginInput'  value={this.state.email} onChange={(e)=> this.onChange('email',e)} placeholder='lucas@email.com' required />
-					</div>
-					<div>
-						<label className='label'>Senha </label>
-						<br/>
-						<input type="password" className='loginInput' value={this.state.senha} onChange={(e)=> this.onChange('senha',e)} required/>
-					</div>
-			
-					<div className='loginBT1'>
-						<button type="submit" className="btn btn-success" onClick={this.entrar}>Entrar</button>
-					</div>	
-					<div className='loginBT2'>
-						<a href='#/cadastro'>
-							<button type="button" className="btn btn-primary">Cadastrar</button>
-						</a>
-					</div>			
-				
-
-				</div>
-			</form>
-				
-		)
-		 }else{
+		if(Cookies.get('Ativo')==='true'){
 			return(
 				<div>
 					{window.location.href='#/usuario'}
 				</div>
+			)		
+		 }else{
+			return(
+				<form>
+					<div className='loginPosicaoo'>
+						<h2 className='loginH2'>Login</h2>
+						
+						<div>
+							<label className='label' >E-mail </label>
+							<br/>
+							<input type="email" className='loginInput'  value={this.state.email} onChange={(e)=> this.onChange('email',e)} placeholder='lucas@email.com' required />
+						</div>
+						<div>
+							<label className='label'>Senha </label>
+							<br/>
+							<input type="password" className='loginInput' value={this.state.senha} onChange={(e)=> this.onChange('senha',e)} required/>
+						</div>
+				
+						<div className='loginBT1'>
+							<button type="submit" className="btn btn-success" onClick={this.entrar}>Entrar</button>
+						</div>	
+						<div className='loginBT2'>
+							<a href='#/cadastro'>
+								<button type="button" className="btn btn-primary">Cadastrar</button>
+							</a>
+						</div>			
+					
+	
+					</div>
+				</form>
+					
 			)
 			
 		} 
