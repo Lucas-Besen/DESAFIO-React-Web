@@ -21,7 +21,7 @@ MYsql, node
    ### CREATE DATABASE cadastro
   execulte o banco de dados depois crie uma DATABASE com o comando acima 
   ## configuraçao do banco na API
-   DESAFIO-React-Web\backend\src\config\config.js. Dentro desse arquivo pode configurar porta, senha, usuário do mysql e nome do banco
+   DESAFIO-React-Web\backend\src\config\config.js. Dentro desse arquivo pode configurar porta, senha, usuário do mysql e nome do banco de dados
   ### npm start
   execute o comando acima dentros das pastas backend e frontend
 
