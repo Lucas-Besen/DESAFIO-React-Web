@@ -29,7 +29,6 @@ class usuario extends Component {
     }
 
     render() {
-   
         if(this.props.ativo!==undefined){
             Cookies.set('Ativo', this.props.ativo,{
                 expires: 7
@@ -50,31 +49,42 @@ class usuario extends Component {
             Cookies.set('telefone', this.props.telefone,{
                 expires: 7
             })
+        } 
+        
+        if(Cookies.get('Ativo')==='true'){
+            return (
+                <div >
+                    <div className='posicaoDados'>
+                        <h1>Seja bem vindo {Cookies.get('nome')}! </h1>
+                        <br />
+                        <br />
+                        <p>Segue seus dados abaixo</p>
+                        <br/>
+                        <p>Nome: {Cookies.get('nome')}</p>
+                        <p>Telefone: {Cookies.get('telefone')}</p>
+                        <p>Email: {Cookies.get('email')}</p>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                       {/*  <p>O site esta em fase beta faltado implementar para o usuario poder trocar a senha e enviar um confirmaçao para o email digitado</p>  */}
+                    </div>
+                    <div className='posicaoButton'>
+                        <button type="button" className="btn btn-danger" onClick={this.sair}>Sair</button>
+                    </div>
+                </div>
+            )
         }
-        
-        
-        return (
-            <div >
-                <div className='posicaoDados'>
-                    <h1>Seja bem vindo {Cookies.get('nome')}! </h1>
-                    <br />
-                    <br />
-                    <p>Segue seus dados abaixo</p>
-                    <br/>
-                    <p>Nome: {Cookies.get('nome')}</p>
-                    <p>Telefone: {Cookies.get('telefone')}</p>
-                    <p>Email: {Cookies.get('email')}</p>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <p>O site esta em fase beta faltado implementar para o usuario poder trocar a senha e enviar um confirmaçao para o email digitado</p> 
+        else{
+            return (
+                <div>
+                    {window.location.href = '#/login'}
                 </div>
-                <div className='posicaoButton'>
-                    <button type="button" className="btn btn-danger" onClick={this.sair}>Sair</button>
-                </div>
-            </div>
-        )
+            )
+        }
+    
+        
+       
     }
 }
 const mapStateToProps = (state) => ({
