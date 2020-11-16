@@ -48,8 +48,9 @@ class Login extends Component {
 			});
 		}
 	}
- 
+	
 	render(){	
+	
 		if(Cookies.get('Ativo')==='true'){
 			return(
 				<div>

@@ -7,8 +7,8 @@ module.exports = (req, res, next) => {
         req.usuario = decode;
         console.log(decode)
         next();
-    } catch (dddd) {
-        return res.send({mensagem: 'falha na autenticação', dddd});
+    } catch (err) {
+        return res.send({mensagem: 'falha na autenticação', err});
     }
 
 }

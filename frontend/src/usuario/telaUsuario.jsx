@@ -9,8 +9,12 @@ class usuario extends Component {
 
     constructor(props) {
         super(props)
-       
+        this.state={
+            nome:'',
+            currentTime: 0
+        } 
         this.sair = this.sair.bind(this)
+        this.gg = this.gg.bind(this)
     }
     sair() {
 
@@ -28,7 +32,35 @@ class usuario extends Component {
             });
     }
 
+
+    contador(){
+        this.setState((prevState) => ({
+            currentTime: prevState.currentTime + 1
+        }))
+    }
+    gg(){
+        this.setState({currentTime: 0})
+    }
+
     render() {
+
+        document.addEventListener('visibilitychange', ()=>{
+            if(document.visibilityState==='hidden' && Cookies.get('Ativo')==='true'){
+        
+                this.contador()
+                console.log(this.state.currentTime)
+                if(this.state.currentTime===5){
+                    this.sair()
+                }                
+            }
+           /*  if(document.visibilityState==='visible' && Cookies.get('Ativo')==='true' && this.state.currentTime!==0){
+                console.log("aqui 0")
+                this.gg()
+                console.log(this.state.currentTime)
+            } */
+
+        })
+
         if(this.props.ativo!==undefined){
             Cookies.set('Ativo', this.props.ativo,{
                 expires: 7
