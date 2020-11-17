@@ -1,4 +1,4 @@
-const INITIAL_STATE = {dadosBD:[] }
+const INITIAL_STATE = {dadosBD:[],dadosVerifica:[] }
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
@@ -6,8 +6,6 @@ export default (state = INITIAL_STATE, action) => {
             return{...state, dadosBD: action.payload.data}
         case 'ADD':
             return {...state,  dadosBD: action.payload.data}
-        case 'SAIR':
-            return{...state,  dadosBD: action.payload.data}
         case 'TRAZERDADOS':
             return{...state,  dadosBD: action.payload.data}
         default:
