@@ -10,9 +10,9 @@ MYsql, node
 ## JWT
    crie um arquivo .env no /backend/src/, insira dentro dele as instruções abaixo
    Você pode alterar essa chave!
-   module.exports = {
+   __module.exports = {
       authSecret: 'chave'
-   }
+   }__
 
 # comandos
    ### npm i 
