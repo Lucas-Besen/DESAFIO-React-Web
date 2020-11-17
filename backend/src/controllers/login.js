@@ -15,35 +15,26 @@ exports.login = (req, res, next) => {
                     if (err) {
                         res.send({  
                             mensagem: "Login ou Senha inválidos", 
-                            ativo: usuario.ativo,
                         });
                     }
                     if (result) {
-                        usuario.update({
-                            ativo:true 
-                        },{
-                            where: {id:id}
-                        })
                         const token = jwt.sign({
                             email: usuario.id
                         },env.authSecret,{
-                            expiresIn:"1h"
+                            expiresIn:"10m"
                         })
                         res.send({ 
                             mensagem: 'logado',
-                            ativo: usuario.ativo, 
                             token: token
                         });
                     } else {
                         res.send({ 
                             mensagem: "Login ou Senha inválidos", 
-                            ativo: usuario.ativo,
                     });
                     }
                 })
             } else {
                 res.send({ mensagem: "Login ou Senha inválidos",
-                ativo: false,
              });
             }
         })
