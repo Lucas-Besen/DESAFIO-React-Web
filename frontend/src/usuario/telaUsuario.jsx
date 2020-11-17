@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { sair } from '../login/confirmaAction'
+import { sair} from '../login/confirmaAction'
+import { trazerDados} from '../login/confirmaAction'
+
 import './telaUsuario.css'
 import Cookies from 'js-cookie'
 
@@ -14,11 +16,12 @@ class usuario extends Component {
             currentTime: 0
         } 
         this.sair = this.sair.bind(this)
-        this.gg = this.gg.bind(this)
+        this.buscaDados = this.buscaDados.bind(this)
+        /* this.gg = this.gg.bind(this) */
     }
     sair() {
 
-        this.props.enviar(Cookies.get('email'))
+        this.props.enviar(Cookies.get('token'))
             .then(() => {
                 if (Cookies.get('Ativo')==='false') {
                     window.location.href = '#/sair'
@@ -38,13 +41,23 @@ class usuario extends Component {
             currentTime: prevState.currentTime + 1
         }))
     }
-    gg(){
+   /*  gg(){
         this.setState({currentTime: 0})
+    } */
+
+    buscaDados(){
+        this.props.trazer(Cookies.get('token'))
+        .then(()=>{
+        })
+        .catch(err => {
+            alert(this.props.mensagem)
+        });
     }
 
     render() {
 
-        document.addEventListener('visibilitychange', ()=>{
+        
+       /*  document.addEventListener('visibilitychange', ()=>{
             if(document.visibilityState==='hidden' && Cookies.get('Ativo')==='true'){
         
                 this.contador()
@@ -53,35 +66,23 @@ class usuario extends Component {
                     this.sair()
                 }                
             }
-           /*  if(document.visibilityState==='visible' && Cookies.get('Ativo')==='true' && this.state.currentTime!==0){
+            if(document.visibilityState==='visible' && Cookies.get('Ativo')==='true' && this.state.currentTime!==0){
                 console.log("aqui 0")
                 this.gg()
                 console.log(this.state.currentTime)
-            } */
+            } 
 
         })
 
+ */     
+        
+        this.buscaDados()
         if(this.props.ativo!==undefined){
-            Cookies.set('Ativo', this.props.ativo,{
-                expires: 7
-            })
-
+            Cookies.set('Ativo', this.props.ativo,)
         }
-        if(this.props.email!==undefined){
-            Cookies.set('email', this.props.email,{
-                expires: 7
-            })
+        if(this.props.token!==undefined){
+            Cookies.set('token', this.props.token)
         }
-        if(this.props.nome!==undefined){
-            Cookies.set('nome', this.props.nome,{
-                expires: 7
-            })
-        }
-        if(this.props.telefone!==undefined){
-            Cookies.set('telefone', this.props.telefone,{
-                expires: 7
-            })
-        } 
         
         if(Cookies.get('Ativo')==='true'){
             return (
@@ -92,9 +93,9 @@ class usuario extends Component {
                         <br />
                         <p>Segue seus dados abaixo</p>
                         <br/>
-                        <p>Nome: {Cookies.get('nome')}</p>
-                        <p>Telefone: {Cookies.get('telefone')}</p>
-                        <p>Email: {Cookies.get('email')}</p>
+                        <p>Nome: {this.props.nome}</p>
+                        <p>Telefone: {this.props.telefone}</p>
+                        <p>Email: {this.props.email}</p>
                         <br/>
                         <br/>
                         <br/>
@@ -106,6 +107,7 @@ class usuario extends Component {
                     </div>
                 </div>
             )
+          
         }
         else{
             return (
@@ -120,15 +122,18 @@ class usuario extends Component {
     }
 }
 const mapStateToProps = (state) => ({
-    email: state.busca.dadosBD.email,
+    token: state.busca.dadosBD.token,
+    ativo: state.busca.dadosBD.ativo,
     nome: state.busca.dadosBD.nome,
     telefone: state.busca.dadosBD.telefone,
-    ativo: state.busca.dadosBD.ativo,
+    email: state.busca.dadosBD.email,
     mensagem: state.busca.dadosBD.mensagem
+
 })
 
 const mapDispatchToprops = (dispatch) => ({
-    enviar: ((email) => dispatch(sair(email)))
+    enviar: ((token) => dispatch(sair(token))),
+    trazer: ((token) => dispatch(trazerDados(token)))
 })
 
 export default connect(mapStateToProps, mapDispatchToprops)(usuario)

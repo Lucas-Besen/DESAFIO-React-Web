@@ -8,6 +8,8 @@ export default (state = INITIAL_STATE, action) => {
             return {...state,  dadosBD: action.payload.data}
         case 'SAIR':
             return{...state,  dadosBD: action.payload.data}
+        case 'TRAZERDADOS':
+            return{...state,  dadosBD: action.payload.data}
         default:
             return state
     }

@@ -25,17 +25,13 @@ exports.login = (req, res, next) => {
                             where: {id:id}
                         })
                         const token = jwt.sign({
-                            email: usuario.id,
-                            nome: usuario.nome,
+                            email: usuario.id
                         },env.authSecret,{
                             expiresIn:"1h"
                         })
                         res.send({ 
                             mensagem: 'logado',
                             ativo: usuario.ativo, 
-                            nome: usuario.nome,
-                            email: usuario.id,
-                            telefone: usuario.telefone,
                             token: token
                         });
                     } else {

@@ -3,7 +3,7 @@ const status = require('http-status');
  
 
 exports.sair = (req, res, next) => {
-    const id = req.body.email;
+    const id = req.token.email;
     Usuario.findByPk(id)
         .then(usuario => {
             if (usuario) {
