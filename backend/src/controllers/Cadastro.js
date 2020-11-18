@@ -10,17 +10,16 @@ exports.cadastro = (req, res, next) => {
         if (usuario) {
             res.send({
                 mensagem:"Usuario ja cadastrado",
-                estado: false,
+                ativo: false,
         });
         } else {
             const nome = req.body.nome;
             const telefone = req.body.telefone;
-            const ativo = req.body.ativo;
             bcrypt.hash(req.body.senha,10, (err, hash) =>{
                 if(err){
                     return res.send({
                         mensagem: err,
-                        estado: false,
+                        ativo: false,
                     })
                 }else{
                     Usuario.create({
@@ -28,11 +27,10 @@ exports.cadastro = (req, res, next) => {
                         nome: nome,
                         senha: hash,
                         telefone: telefone,
-                        ativo: ativo
                     })
                     res.send({
                         mensagem: 'Usuario Cadastrado',
-                        estado: true,
+                        ativo: true,
                 });
                 }
             })

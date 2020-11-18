@@ -3,12 +3,15 @@ const env = require('../../src/.env')
 
 module.exports = (req, res, next) => {
     try {
-        const decode = jwt.verify(req.body.token, env.authSecret);
-        req.usuario = decode;
-        console.log(decode)
+        const token = req.headers.authorization.split(' ')[1];
+        const decode = jwt.verify(token, env.authSecret);
+        req.token = decode;
         next();
-    } catch (dddd) {
-        return res.send({mensagem: 'falha na autenticação', dddd});
+    } catch (err) {
+        return res.send({
+            mensagem: 'falha na autenticação',
+            ativo: true
+    });
     }
 
 }

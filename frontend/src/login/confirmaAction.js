@@ -17,17 +17,16 @@ export function add (dadosAdd){
         payload: request
     }
 }
-export function sair (email){
-    const request = axios.put(`${BASE_URL}/login/`,{email})
+
+export function trazerDados (token){
+    const request = axios.post(`${BASE_URL}/dados`, {} , { headers: { 'Authorization' : `Bearer ${token}` }})
     return{
-        type: 'SAIR',
+        type: 'TRAZERDADOS',
         payload: request
     }
 }
 
-export function atualiza (ativo){
-    return{
-        type: 'SAIR',
-        payload: ativo
-    }
-}
+
+
+
+
