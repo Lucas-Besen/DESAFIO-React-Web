@@ -26,21 +26,21 @@ class Login extends Component {
 		}
 	}
 
-	entrar() {
-
+	entrar(e) {
+		e.preventDefault();
 		this.props.enviar([
 			this.state.email,
 			this.state.senha
 		])
-			.then(() => {
-				if (this.props.token) {
-					window.location.href = '#/usuario'
-				}
-				else {
-					alert(this.props.mensagem)
-				}
+		.then(() => {
+			if (this.props.token) {
+				window.location.href = '#/usuario'
+			}
+			else {
+				alert(this.props.mensagem)
+			}
 			})
-			.catch(err => { console.error('fetch failed', err) });
+			.catch(err => { alert('fetch failed', err) });
 	}
 	render() {
 

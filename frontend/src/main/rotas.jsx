@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Route, Redirect, hashHistory } from 'react-router'
+import { Router, Route, Redirect, hashHistory} from 'react-router'
 
 
 import Login from '../login/telaLogin'
@@ -14,5 +14,7 @@ export default props => (
         <Route path ='/usuario'component={Usuario} />
         <Redirect from='*' to='/login' />        
     </Router>
+
 )
+
 

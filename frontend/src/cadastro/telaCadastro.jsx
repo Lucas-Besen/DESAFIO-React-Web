@@ -37,8 +37,8 @@ class Cadastro extends Component {
 			this.setState({ confirmaSenha: valor.target.value })
 		}
 	}
-	cadastar() {
-
+	cadastar(e) {
+		e.preventDefault();
 		if (this.state.senha === this.state.confirmaSenha && this.state.senha != '') {
 			this.props.enviar([
 				this.state.nome,
@@ -49,6 +49,7 @@ class Cadastro extends Component {
 				.then(() => {
 
 					if (this.props.ativo) {
+						alert(this.props.mensagem)
 						window.location.href = '#/login'
 					}
 					else {
@@ -89,7 +90,7 @@ class Cadastro extends Component {
 						<div>
 							<label className='label'>Telefone</label>
 							<br />
-							<input type="tel" className='CadastroInput' placeholder='(00)123456789' required pattern="\(\d{2}\)\d{9}" maxLength="13" value={this.state.telefone} onChange={(e) => this.onChange('telefone', e)} />
+							<input type="text" className='CadastroInput' placeholder='(00)123456789' required pattern="\(\d{2}\)\d{9}" maxLength="13" value={this.state.telefone} onChange={(e) => this.onChange('telefone', e)} />
 						</div>
 						<div>
 							<label className='label'>Senha</label>
