@@ -38,32 +38,31 @@ class Cadastro extends Component {
 		}
 	}
 	cadastar() {
-		if (this.state.nome != '' && this.state.telefone != '' && this.state.email != '') {
-			if (this.state.senha === this.state.confirmaSenha && this.state.senha != '') {
-				this.props.enviar([
-					this.state.nome,
-					this.state.telefone,
-					this.state.email,
-					this.state.senha
-				])
-					.then(() => {
 
-						if (this.props.ativo) {
-							window.location.href = '#/login'
-						}
-						else {
-							alert(this.props.mensagem)
-						}
-					})
-					.catch(err => {
-						console.error('fetch failed', err);
-					});
+		if (this.state.senha === this.state.confirmaSenha && this.state.senha != '') {
+			this.props.enviar([
+				this.state.nome,
+				this.state.telefone,
+				this.state.email,
+				this.state.senha
+			])
+				.then(() => {
 
-			} else if (this.state.senha != '') {
-				alert("Senhas Diferentes")
-			}
+					if (this.props.ativo) {
+						window.location.href = '#/login'
+					}
+					else {
+						alert(this.props.mensagem)
+					}
+				})
+				.catch(err => {
+					console.error('fetch failed', err);
+				});
 
+		} else if (this.state.senha != '') {
+			alert("Senhas Diferentes")
 		}
+
 	}
 	render() {
 		if (Cookies.get('token')) {
@@ -74,7 +73,7 @@ class Cadastro extends Component {
 			)
 		} else {
 			return (
-				<form>
+				<form onSubmit={this.cadastar}>
 					<div className='CadastroPosicao'>
 						<h2 className='CadastroH2'>Cadastro</h2>
 						<div>
@@ -90,7 +89,7 @@ class Cadastro extends Component {
 						<div>
 							<label className='label'>Telefone</label>
 							<br />
-							<input type="text" className='CadastroInput' placeholder='(00)123456789' required pattern="\(\d{2}\)\d{9}" value={this.state.telefone} onChange={(e) => this.onChange('telefone', e)} />
+							<input type="tel" className='CadastroInput' placeholder='(00)123456789' required pattern="\(\d{2}\)\d{9}" maxLength="13" value={this.state.telefone} onChange={(e) => this.onChange('telefone', e)} />
 						</div>
 						<div>
 							<label className='label'>Senha</label>
@@ -103,7 +102,7 @@ class Cadastro extends Component {
 							<input type="password" className='CadastroInput' required value={this.state.confirmaSenha} onChange={(e) => this.onChange('confirmaSenha', e)} />
 						</div>
 						<div className='CadastroBT1'>
-							<button type="submit" className="btn btn-primary" onClick={this.cadastar} >Cadastrar</button>
+							<button type="submit" className="btn btn-primary"  >Cadastrar</button>
 						</div>
 						<div className='CadastroBT2'>
 							<a href='#/login'>
@@ -116,7 +115,6 @@ class Cadastro extends Component {
 		}
 	}
 }
-
 const mapStateToProps = (state) => ({
 	mensagem: state.busca.dadosBD.mensagem,
 	ativo: state.busca.dadosBD.ativo

@@ -27,21 +27,20 @@ class Login extends Component {
 	}
 
 	entrar() {
-		if (this.state.email != '' && this.state.senha != '') {
-			this.props.enviar([
-				this.state.email,
-				this.state.senha
-			])
-				.then(() => {
-					if (this.props.token) {
-						window.location.href ='#/usuario'
-					}
-					else {
-						alert(this.props.mensagem)
-					}
-				})
-				.catch(err => { console.error('fetch failed', err) });
-		}
+
+		this.props.enviar([
+			this.state.email,
+			this.state.senha
+		])
+			.then(() => {
+				if (this.props.token) {
+					window.location.href = '#/usuario'
+				}
+				else {
+					alert(this.props.mensagem)
+				}
+			})
+			.catch(err => { console.error('fetch failed', err) });
 	}
 	render() {
 
@@ -53,7 +52,7 @@ class Login extends Component {
 			)
 		} else {
 			return (
-				<form>
+				<form onSubmit={this.entrar}>
 					<div className='loginPosicaoo'>
 						<h2 className='loginH2'>Login</h2>
 
@@ -69,7 +68,7 @@ class Login extends Component {
 						</div>
 
 						<div className='loginBT1'>
-							<button type="submit" className="btn btn-success" onClick={this.entrar}>Entrar</button>
+							<button type="submit" className="btn btn-success">Entrar</button>
 						</div>
 						<div className='loginBT2'>
 							<a href='#/cadastro'>

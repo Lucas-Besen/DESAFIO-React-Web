@@ -19,11 +19,8 @@ class usuario extends Component {
         
     }
     sair() {
-        console.log('metodo sair')
         Cookies.remove('token')
-        window.location.href='#/Sair'
-        console.log('fin')
-
+        window.location.href = '#/login'
     }
 
   /*   contador(){
@@ -42,6 +39,7 @@ class usuario extends Component {
         })
         .catch(err => { alert(this.props.mensagem) });
     }
+
     render() {
 
         if(this.props.token){
@@ -67,6 +65,7 @@ class usuario extends Component {
         }) */
         if(Cookies.get('token')){
             return (
+                
                 <div >
                     <div className='posicaoDados'>
                         {this.buscaDados()}
