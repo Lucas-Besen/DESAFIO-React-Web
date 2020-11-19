@@ -23,7 +23,8 @@ exports.confirma = (req, res, next )=>{
         to: req.email,
         replyTo:config.credenciais.email_user,
         subject:"link de confirmaçao",
-        text:`http://localhost:3030/api/confimadados/${token}`
+        html: `<a href=http://localhost:3030/api/confimadados/${token}>Clique Aqui</a>`
+
     }).then(info =>{
         res.send(info)
     }).catch(err =>{
@@ -43,7 +44,8 @@ exports.confirmado = (req, res, next)=>{
                     where: {id: id}
                 })
                 .then( ()=> {
-                    res.send("usuario autenticado com sucesso");
+                    res.send("<script>alert('usuario autenticado com sucesso')</script> <script>window.location.href = 'http://localhost:8080/#/login'</script>");
+
                 })
                 .catch(error => next(error));
             }else{
