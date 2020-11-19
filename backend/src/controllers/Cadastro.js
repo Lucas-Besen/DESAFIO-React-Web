@@ -12,7 +12,7 @@ exports.cadastro = (req, res, next) => {
                 mensagem:"Usuario ja cadastrado",
                 ativo: false,
         });
-        } else {
+        } else if(id){
             const nome = req.body.nome;
             const telefone = req.body.telefone;
             bcrypt.hash(req.body.senha,10, (err, hash) =>{
@@ -31,9 +31,16 @@ exports.cadastro = (req, res, next) => {
                     res.send({
                         mensagem: 'Usuario Cadastrado',
                         ativo: true,
-                });
+                    });
+                    req.email = id;
+                    next();
                 }
             })
+        }
+        else{
+            res.send({
+                mensagem:"Usuario invalido",
+                ativo: false,})
         }
     })
     .catch(error => next(error));
