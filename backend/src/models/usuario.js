@@ -19,7 +19,7 @@ const Usuario = sequelize.define("usuario", {
     },
     telefone: {
         allowNull: false,
-        type: Sequelize.STRING(13),
+        type: Sequelize.STRING(16),
     },
 
     senha: {

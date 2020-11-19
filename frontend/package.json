@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "js-cookie": "^2.2.1"
+    "js-cookie": "^2.2.1",
+    "remask": "0.1.0-alpha.5"
   }
 }

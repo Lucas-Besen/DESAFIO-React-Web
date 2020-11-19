@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { add } from '../login/confirmaAction'
 import './talaCadastro.css'
 import Cookies from 'js-cookie'
+import { mask,unMask } from 'remask'
 class Cadastro extends Component {
 
 	constructor(props) {
@@ -22,13 +23,16 @@ class Cadastro extends Component {
 
 	onChange(nome, valor) {
 		if (nome === 'nome') {
+			
 			this.setState({ nome: valor.target.value })
 		}
 		else if (nome === 'email') {
 			this.setState({ email: valor.target.value })
 		}
 		else if (nome === 'telefone') {
-			this.setState({ telefone: valor.target.value })
+			const value = unMask(valor.target.value )
+			const pattern = mask(value,['(99) 9999-9999','(99) 9 9999-9999'])
+			this.setState({ telefone: pattern })
 		}
 		else if (nome === 'senha') {
 			this.setState({ senha: valor.target.value })
@@ -90,7 +94,7 @@ class Cadastro extends Component {
 						<div>
 							<label className='label'>Telefone</label>
 							<br />
-							<input type="text" className='CadastroInput' placeholder='(00)123456789' required pattern="\(\d{2}\)\d{9}" maxLength="13" value={this.state.telefone} onChange={(e) => this.onChange('telefone', e)} />
+							<input type="text" className='CadastroInput' placeholder='(00)123456789'  required  value={this.state.telefone} onChange={(e) => this.onChange('telefone', e)} />
 						</div>
 						<div>
 							<label className='label'>Senha</label>
